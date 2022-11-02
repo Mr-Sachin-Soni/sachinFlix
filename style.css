@@ -84,6 +84,9 @@ header img {
   margin-left: 18em;
   margin-right: 18em;
 }
+.content {
+  font-size: 2em;
+}
 .main-title {
   font-size: 4rem;
 }
@@ -205,20 +208,95 @@ header img {
   padding-top: 2em;
   /* font-size: 1rem; */
 }
+
+/* ***********************ACCORDION SECTION************************** */
+.accordion-body {
+  background-color: black;
+}
 .faq-heading {
-  justify-content: center;
+  /* padding-top: 1em; */
+  padding-bottom: 1em;
   text-align: center;
   font-size: 3rem;
+  font-weight: 100;
+}
+.accordion {
+  width: 800px;
+  margin: 0px auto;
+  /* color: black; */
+  /* background-color: white; */
+  padding: 45px 1px;
 }
 
-.accordion {
+.accordion .container {
+  position: relative;
+  margin: 10px 10px;
   background-color: #3c3b3b;
-  margin-left: 10em;
-  margin-right: 10em;
-  margin-top: 2em;
-  padding-top: 0.4em;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 1em;
-  font-size: 1rem;
+}
+
+/* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
+
+.accordion .label {
+  position: relative;
+  /* padding: 10px 0; */
+  padding: 0.7em;
+  font-size: 1.8rem;
+  /* color: black; */
+  cursor: pointer;
+}
+
+/* Positions the plus sign 5px from the right. Centers it using the transform property. */
+
+.accordion .label::before {
+  content: "+";
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  font-size: 3rem;
+  transform: translateY(-50%);
+  font-family: none;
+}
+
+/* Hides the content (height: 0), decreases font size, justifies text and adds transition */
+
+.accordion .content {
+  position: relative;
+  /* background: white; */
+  height: 0;
+  font-size: 20px;
+  text-align: justify;
+  width: 780px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+/* Adds a horizontal line between the contents */
+
+.accordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
+}
+
+/* *
+  Unhides
+  the
+  content
+  part
+  when
+  active.
+  Sets
+  the
+  height
+  */
+*/ .accordion .container.active .content {
+  height: 150px;
+}
+
+/* Changes from plus sign to negative sign once active */
+
+.accordion .container.active .label::before {
+  content: "-";
+  font-size: 30px;
 }
